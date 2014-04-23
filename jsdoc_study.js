@@ -1,9 +1,15 @@
+/**
+ * doSomething is a function
+ * @param str {String} a string parameter
+ * @param num {Number} a number parameter
+ * @returns {{name: String, age: Number}}
+ */
 var doSomething = function(str, num){
     return {name : str, age : num};
 };
 
 doSomething(1, "terry");
-
+doSomething("terry", 1);
 
 /**
  * @namespace
