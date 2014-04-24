@@ -5,7 +5,7 @@
  * @returns {{name: String, age: Number}}
  */
 var doSomething = function(str, num){
-    return {name : str, age : num};
+    return {name : str, age : num + 1};
 };
 
 doSomething(1, "terry");
