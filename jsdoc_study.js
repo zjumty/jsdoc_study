@@ -1,8 +1,8 @@
 /**
  * doSomething is a function
- * @param str {String} a string parameter
- * @param num {Number} a number parameter
- * @returns {{name: String, age: Number}}
+ * @param {String} str  a string parameter
+ * @param {Number} num  a number parameter
+ * @return {{name: String, age: Number}}
  */
 var doSomething = function(str, num){
     return {name : str, age : num + 1};
@@ -10,6 +10,45 @@ var doSomething = function(str, num){
 
 doSomething(1, "terry");
 doSomething("terry", 1);
+
+/**
+ * doSomething is a function
+ * @param {String} str  a string parameter
+ * @param {Number=} num  a number parameter
+ * @return {{name: String, age: Number}}
+ */
+var doSomething2 = function(str, num){
+    num = num || 18;
+    return {name : str, age : num + 1};
+};
+
+doSomething2("terry", 1);
+doSomething2("terry");
+
+/**
+ * doSomething is a function
+ * @param {String} str  a string parameter
+ * @param {Number} num  a number parameter
+ * @return {{name: String, age: Number=}}
+ */
+var doSomething3 = function(str, num){
+    return {name : str};
+};
+
+/**
+ * doSomething is a function
+ * @param {String} str  a string parameter
+ * @param {Number} num  a number parameter
+ * @return {!String}
+ */
+var doSomething4 = function(str, num){
+    return null;
+};
+
+var val4 = doSomething4("a", 1);
+if(val4 == null){
+
+}
 
 /**
  * @namespace
@@ -45,8 +84,8 @@ var Module1 = (function ($) {
         /**
          * func1
          * @memberOf Module1
-         * @param obj {FooBean}
-         * @param callback {function(Number, Car): Array.<Part>}
+         * @param {FooBean} obj
+         * @param {function(Number, Car): Array.<Part>} callback
          * @return Boolean
          */
         func1: function (obj, callback) {
@@ -67,7 +106,7 @@ var Module1 = (function ($) {
 
         /**
          * func2
-         * @param obj {Car}
+         * @param {Car} obj
          * @return Boolean
          * @memberOf Module1
          */
@@ -85,7 +124,7 @@ var Module1 = (function ($) {
         /**
          * func4
          * @private
-         * @param num {Number}
+         * @param {Number} num
          * @returns {boolean}
          */
         func4: function (num) {
@@ -122,8 +161,8 @@ var Module2 = (function ($) {
         /**
          * func1
          * @memberOf Module2
-         * @param obj {FooBean}
-         * @param callback {function(Number, Car): Array.<Part>}
+         * @param {FooBean} obj
+         * @param {function(Number, Car): Array.<Part>} callback
          * @return Boolean
          */
         func1: function (obj, callback) {
@@ -139,8 +178,8 @@ var Module2 = (function ($) {
         /**
          * 绑定事件
          * @memberOf Module2
-         * @param eventName {String}
-         * @param eventHandler {EventHandler}
+         * @param {String} eventName
+         * @param {EventHandler} eventHandler
          */
         bind: function (eventName, eventHandler) {
             events.on.apply(events, arguments);
