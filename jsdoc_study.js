@@ -4,8 +4,8 @@
  * @param {Number} num  a number parameter
  * @return {{name: String, age: Number}}
  */
-var doSomething = function(str, num){
-    return {name : str, age : num + 1};
+var doSomething = function (str, num) {
+    return {name: str, age: num + 1};
 };
 
 doSomething(1, "terry");
@@ -17,9 +17,9 @@ doSomething("terry", 1);
  * @param {Number=} num  a number parameter
  * @return {{name: String, age: Number}}
  */
-var doSomething2 = function(str, num){
+var doSomething2 = function (str, num) {
     num = num || 18;
-    return {name : str, age : num + 1};
+    return {name: str, age: num + 1};
 };
 
 doSomething2("terry", 1);
@@ -31,8 +31,8 @@ doSomething2("terry");
  * @param {Number} num  a number parameter
  * @return {{name: String, age: Number=}}
  */
-var doSomething3 = function(str, num){
-    return {name : str};
+var doSomething3 = function (str, num) {
+    return {name: str};
 };
 
 /**
@@ -41,12 +41,12 @@ var doSomething3 = function(str, num){
  * @param {Number} num  a number parameter
  * @return {!String}
  */
-var doSomething4 = function(str, num){
+var doSomething4 = function (str, num) {
     return null;
 };
 
 var val4 = doSomething4("a", 1);
-if(val4 == null){
+if (val4 == null) {
 
 }
 
@@ -216,6 +216,9 @@ var Person = Class.extend(
     }
 );
 
+var person = new Person({name:"text", size:18});
+person.canDrive();
+
 /**
  * Student类
  * @class
@@ -236,7 +239,7 @@ var Student = Person.extend(
          * 呼叫我
          * @param callback {function(this:Student, Car)}
          */
-        callMe : function(callback){
+        callMe: function (callback) {
             callback.call(this, this.car);
         }
     }
@@ -254,12 +257,12 @@ var car = {
     size: 10,
     parts: [
         {
-            name : "light",
-            price : 100
+            name: "light",
+            price: 100
         },
         {
-            name : "wheel",
-            price : 200
+            name: "wheel",
+            price: 200
         }
     ]
 };
@@ -269,12 +272,11 @@ p.canDrive();
 
 var s = new Student(car);
 s.canDrive();
-s.callMe(function(d){
+s.callMe(function (d) {
     this.readBook(d.name);
 });
 
 Module2.bind("", "");
-
 
 
 /**
@@ -293,14 +295,208 @@ highlightSearchTerm("");
  * @constructor
  * @template T
  */
-Foo = function() {};
+Foo = function () {
+};
 /** @return {T} */
-Foo.prototype.get = function() {};
+Foo.prototype.get = function () {
+};
 
 /** @param {T} t */
-Foo.prototype.set = function(t) {};
+Foo.prototype.set = function (t) {
+};
 
 /** @type {Foo.<FooBean>} */
 var foo = new Foo();
 
 foo.set("a");
+foo.get().
+
+/**
+ * A shape.
+ * @interface
+ */
+function Shape() {
+}
+Shape.prototype.draw = function () {
+};
+
+/**
+ * A polygon.
+ * @interface
+ * @extends {Shape}
+ */
+function Polygon() {
+}
+Polygon.prototype.getSides = function () {
+};
+
+var poly = new Polygon();
+
+/**
+ * A circle.
+ * @class
+ * @implements {Polygon}
+ */
+function Circle() {
+}
+Circle.prototype.draw = function () {
+};
+Circle.prototype.getSides = function () {
+};
+
+/**
+ * A circle.
+ * @class
+ * @extends {Circle}
+ */
+function CircleExt() {
+}
+CircleExt.prototype.move = function(){};
+
+var ce = new CircleExt();
+
+/**
+ * A airplane.
+ * @constructor
+ * @final
+ */
+function AirPlane() {
+}
+/**
+ *
+ */
+AirPlane.prototype.fly = function () {
+};
+
+/**
+ * A jet.
+ * @class
+ * @extends {AirPlane}
+ */
+function Jet() {
+}
+Jet.prototype = new AirPlane();
+/**
+ * @override
+ */
+Jet.prototype.fly = function () {
+};
+
+
+/**
+ * Employee virtual Type
+ * @typedef {Object} Employee
+ * @property {String} name
+ * @property {Number} age
+ */
+
+/**
+ * Manager virtual Type
+ * @typedef {Object} Manager
+ * @property {String} name
+ * @property {Number} age
+ * @property {Array.<Employee>} employees
+ */
+
+/**
+ * a function that a manager can make a order
+ * @param {Manager} manager
+ */
+var makeOrder = function (manager) {
+
+};
+
+/** @type Manager */
+var manger = $.parseJSON("{...}");
+
+/**
+ *
+ * @param {function(this:HTMLTableElement, Number)} f
+ * @param {String} otherData
+ */
+var doSomething5 = function (f, otherData) {
+
+};
+
+doSomething5(function (num) {
+    //this.
+}, "text");
+
+
+/**
+ *
+ * @param {function(new:Employee, Number)} Factory
+ * @param {String} otherData
+ */
+var doSomething6 = function (Factory, otherData) {
+    var emp = new Factory(2);
+
+};
+
+/**
+ *
+ * @param {function(string, ...[number])} f
+ * @param {String} otherData
+ */
+var doSomething7 = function (f, otherData) {
+    f("terry");
+    f("terry", 1);
+    f("terry", 1, 2, 3);
+    f("terry", 1, 2, 3, 4);
+    f(1, 2, 3);
+};
+
+
+/**
+ *
+ * @param {...number} args
+ */
+var doSomething8 = function (args) {
+
+};
+
+doSomething8(1, 2, 3, 4);
+doSomething8(1, "t", 2);
+
+/**
+ *
+ * @param {Number} age
+ * @param {String=} name
+ */
+var doSomething9 = function (age, name) {
+
+};
+
+doSomething9(1);
+doSomething9(1, "a");
+
+/**
+ *
+ * @param {*} obj
+ * @param {...function} methods
+ */
+var addMember = function(obj, methods){
+};
+
+/** @namespace */
+var Tools = {};
+
+/**
+ * @memberOf Tools
+ * @param {String} str
+ **/
+var hammer = function(str) {
+};
+
+/**
+ * @memberOf Tools
+ * @param {String} str
+ * @private
+ **/
+var sickle = function(str) {
+};
+
+addMember(Tools, hammer, sickle);
+
+Tools.sickle("aaa");
+
